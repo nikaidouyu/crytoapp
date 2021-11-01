@@ -3,6 +3,20 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
+import firebase from 'firebase'
+ 
+const config = {
+  apiKey: "AIzaSyAza_vpvaW1J1Z8TC9VjpdMrLqZQLBMe-g",
+  authDomain: "crytoapp-d655f.firebaseapp.com",
+  projectId: "crytoapp-d655f",
+  storageBucket: "crytoapp-d655f.appspot.com",
+  messagingSenderId: "190986014199",
+  appId: "1:190986014199:web:c1102dfbc657d44868b2f2",
+  measurementId: "G-520FZC9HJT"
+};
+ 
+firebase.initializeApp(config);
+
 Vue.config.productionTip = false
 
 new Vue({
@@ -10,17 +24,3 @@ new Vue({
   store,
   render: h => h(App)
 }).$mount('#app')
-
-import firebase from 'firebsae'
-
-const config = {
-  apiKey: "AIzaSyBwf7s0bxd2S9vM5Hg6cCc0aZujp8r0Vho",
-  authDomain: "crytoapp-4bb7b.firebaseapp.com",
-  projectId: "crytoapp-4bb7b",
-  storageBucket: "crytoapp-4bb7b.appspot.com",
-  messagingSenderId: "216116340259",
-  appId: "1:216116340259:web:8fafa2839b5875339cb396",
-  measurementId: "G-XRNC5H337C"
-};
-
-firebase.initializeApp(config);

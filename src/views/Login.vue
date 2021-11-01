@@ -13,8 +13,9 @@
           <input type="password">
         </div>
         <div class="login">
-          <router-link to="list"><button>ログイン</button></router-link>
-          <router-link to="/"><p>会員登録がまだの方</p></router-link>
+         <button @click="login">ログイン</button>
+         <router-link to="/"><p>会員登録がまだの方</p></router-link>
+         <router-link to="list"><p>会員登録がまだの方</p></router-link>
         </div>
       </div>
     </div>
@@ -49,8 +50,8 @@ export default {
   transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
-  height: 45%;
-  width: 37%;
+  height: 310px;
+  width: 530px;
   border-radius: 15px;
 } 
 
@@ -106,6 +107,7 @@ export default {
   border-radius: 10px;
   background-color: black;
   color:white;
+  margin:10px auto;
 }
 
 .login p{
@@ -114,7 +116,6 @@ export default {
   color: black;
   display: inline;
 }
-
 
 .login p:hover {
   opacity: 0.5;
@@ -129,6 +130,18 @@ a {
   text-decoration-line:none ;
 }
 
+@media screen and (max-width : 768px){
 
+.back-color {
+  /* background-image: url("../assets/photo-1554386690-cc2d52c7f3d6.jpeg"); */
+  background-size: cover;
+  height: 50px;
+}
+
+
+
+
+
+}
 
 </style>

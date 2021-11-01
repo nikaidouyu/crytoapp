@@ -23,7 +23,7 @@
 
 <script>
 import Header from "../components/Header";
-import firebase from "..plugins/plugins/firebase";
+import firebase from 'firebase';
 export default {
   components: {
     Header
@@ -35,7 +35,7 @@ export default {
     }
   },
   methods: {
-    register() {
+    register: function() {
       if (!this.email || !this.password) {
         alert('メールアドレスまたはパスワードが入力されていません。')
         return
@@ -88,8 +88,8 @@ export default {
   transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
-  height: 45%;
-  width: 37%;
+  height: 310px;
+  width: 530px;
   border-radius: 15px;
 } 
 
@@ -145,6 +145,7 @@ export default {
   border-radius: 10px;
   background-color: black;
   color:white;
+  margin:10px auto;
 }
 
 .login p{
@@ -167,6 +168,18 @@ a {
   text-decoration-line:none ;
 }
 
+@media screen and (max-width : 768px){
 
+.back-color {
+  /* background-image: url("../assets/photo-1554386690-cc2d52c7f3d6.jpeg"); */
+  background-size: cover;
+  height: 50px;
+}
+
+
+
+
+
+}
 
 </style>

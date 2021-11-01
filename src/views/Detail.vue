@@ -24,8 +24,12 @@ export default {
 
 <style scoped>
 
-.back-color {
+.detail {
   background-color: #E5E5E5;
+  background-size: cover;
+}
+
+.back-color {
   font-size: 45px;
 }
 
@@ -53,6 +57,16 @@ export default {
 
 @media screen and (max-width : 768px){
 	
+.detail {
+  background-color: #E5E5E5;
+  height: 100%;
+  min-height: 100vh;
+}
+
+.back-color {
+  font-size:30px;
+}
+
 }
 
 </style>

@@ -5,7 +5,7 @@
   <div class="back-color">
     <div class="list-1">
       <div id="title">
-        <p>銘柄</p>
+        <p class="title1">銘柄</p>
         <p>説明</p>
       </div>
       <router-link to="detail"><a><div class="name">
@@ -76,13 +76,13 @@ img{
   padding-bottom:30px;
   padding-top:20px;
   margin: 0 100px 0 100px;
-  align-items: center;
+  align-items:center;
   font-size: 20px;
   padding-left: 28.5%;
 }
 
-#title p {
-  padding-right: 45%;
+.title1{
+  padding-right: 49%;
 }
 
 .name {
@@ -109,6 +109,30 @@ img{
 
 a {
     text-decoration-line: none;
+}
+
+@media screen and (max-width : 768px){
+
+.name p {
+  padding-left: 15%;
+  padding-right: 1%;
+  font-size: 15px;
+}
+
+img{
+  width:40px;
+  height:40px;
+  padding-left: 10%;
+}
+
+#title {
+  padding-left:23%;
+  font-size:15px;
+}
+
+.title1{
+  padding-right: 30%;
+}
 }
 
 </style>

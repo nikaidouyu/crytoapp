@@ -17,4 +17,10 @@
 .header p{
  font-size:50px;
 }
+
+@media screen and (max-width : 768px){
+  .header p {
+    font-size:30px;
+  }
+}
 </style>

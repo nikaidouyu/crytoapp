@@ -39,5 +39,16 @@ a {
   text-decoration-line:none ;
 }
 
+@media screen and (max-width : 768px){
+  .header p {
+    font-size:30px;
+  }
+
+  .logout p {
+    font-size:15px;
+  }
+}
+
+
 
 </style>
