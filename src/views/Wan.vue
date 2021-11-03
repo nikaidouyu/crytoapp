@@ -23,7 +23,7 @@
 
 <script>
 import Header from "../components/Header";
-// import firebase from 'firebase';
+import firebase from 'firebase';
 export default {
   components: {
     Header
