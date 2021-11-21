@@ -6,16 +6,15 @@
       <div class="back">
         <div class="email">
           <p>email:</p>
-          <input type="email">
+          <input v-model="email" type="email" required>
         </div>
         <div class="pass">
           <p>password:</p>
-          <input type="password">
+          <input v-model="password" type="password" required>
         </div>
         <div class="login">
          <button @click="login">ログイン</button>
          <router-link to="/"><p>会員登録がまだの方</p></router-link>
-         <router-link to="list"><p>会員登録がまだの方</p></router-link>
         </div>
       </div>
     </div>
@@ -24,11 +23,51 @@
 
 <script>
 import Header from "../components/Header";
+import firebase from 'firebase/app';
+
 export default {
   components: {
     Header
   },
-};
+  data() {
+    return {
+      email: null,
+      password: null,
+    }
+  },
+  methods: {
+    login() {
+      if (!this.email || !this.password) {
+        alert('メールアドレスまたはパスワードが入力されていません。')
+        return
+      }
+      firebase
+        .auth()
+        .createUserWithEmailAndPassword(this.email, this.password)
+        .then((data) => {
+          data.user.sendEmailVerification().then(() => {
+            this.$router.replace('/list')
+          })
+        })
+        .catch((error) => {
+          switch (error.code) {
+            case 'auth/invalid-email':
+              alert('メールアドレスの形式が違います。')
+              break
+            case 'auth/email-already-in-use':
+              alert('このメールアドレスはすでに使われています。')
+              break
+            case 'auth/weak-password':
+              alert('パスワードは8文字以上で入力してください。')
+              break
+            default:
+              alert('エラーが起きました。しばらくしてから再度お試しください。')
+              break
+          }
+        })
+    },
+  },
+}
 </script>
 
 <style scoped>

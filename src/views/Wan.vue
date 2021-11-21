@@ -13,8 +13,8 @@
           <input v-model="password" type="password" required>
         </div>
         <div class="login">
-          <button @cklic="register">会員登録</button>
-          <router-link to="/login"><p>ログインはこちら</p></router-link>
+         <button @cklic="register">会員登録</button>
+         <router-link to="/login"><p>ログインはこちら</p></router-link>
         </div>
       </div>
     </div>
@@ -23,7 +23,8 @@
 
 <script>
 import Header from "../components/Header";
-import firebase from 'firebase';
+import firebase from 'firebase/app';
+
 export default {
   components: {
     Header
@@ -35,7 +36,7 @@ export default {
     }
   },
   methods: {
-    register: function() {
+    register() {
       if (!this.email || !this.password) {
         alert('メールアドレスまたはパスワードが入力されていません。')
         return
@@ -45,10 +46,10 @@ export default {
         .createUserWithEmailAndPassword(this.email, this.password)
         .then((data) => {
           data.user.sendEmailVerification().then(() => {
-            this.$router.replace('/confirm')
+            this.$router.replace('/list')
           })
         })
-        .catch((error) => {
+         .catch((error) => {
           switch (error.code) {
             case 'auth/invalid-email':
               alert('メールアドレスの形式が違います。')
@@ -57,7 +58,7 @@ export default {
               alert('このメールアドレスはすでに使われています。')
               break
             case 'auth/weak-password':
-              alert('パスワードは8文字以上で入力してください。')
+              alert('パスワードは6文字以上で入力してください。')
               break
             default:
               alert('エラーが起きました。しばらくしてから再度お試しください。')
