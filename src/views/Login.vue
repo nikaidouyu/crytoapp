@@ -43,22 +43,24 @@ export default {
       }
       firebase
         .auth()
-        .createUserWithEmailAndPassword(this.email, this.password)
-        .then((data) => {
-          data.user.sendEmailVerification().then(() => {
-            this.$router.replace('/list')
+        .signInWithEmailAndPassword(this.email, this.password)
+        .then(() => {
+            alert("ログインが完了しました。")
+            this.$router.push('/list')
           })
-        })
         .catch((error) => {
           switch (error.code) {
             case 'auth/invalid-email':
               alert('メールアドレスの形式が違います。')
               break
-            case 'auth/email-already-in-use':
-              alert('このメールアドレスはすでに使われています。')
+            case 'auth/user-disabled':
+              alert('ユーザーが無効になっています。')
               break
-            case 'auth/weak-password':
-              alert('パスワードは8文字以上で入力してください。')
+            case 'auth/user-not-found':
+              alert('ユーザーが存在しません。')
+              break
+            case 'auth/wrong-password':
+              alert('パスワードが間違っております。')
               break
             default:
               alert('エラーが起きました。しばらくしてから再度お試しください。')
@@ -159,6 +161,7 @@ export default {
 .login p:hover {
   opacity: 0.5;
   text-decoration-line: underline;
+  cursor: default;
 }
 
 button:hover {

@@ -13,7 +13,7 @@
           <input v-model="password" type="password" required>
         </div>
         <div class="login">
-         <button @cklic="register">会員登録</button>
+         <button @click="register" key>会員登録</button>
          <router-link to="/login"><p>ログインはこちら</p></router-link>
         </div>
       </div>
@@ -49,7 +49,7 @@ export default {
             this.$router.replace('/list')
           })
         })
-         .catch((error) => {
+        .catch((error) => {
           switch (error.code) {
             case 'auth/invalid-email':
               alert('メールアドレスの形式が違います。')
@@ -58,7 +58,7 @@ export default {
               alert('このメールアドレスはすでに使われています。')
               break
             case 'auth/weak-password':
-              alert('パスワードは6文字以上で入力してください。')
+              alert('パスワードは8文字以上で入力してください。')
               break
             default:
               alert('エラーが起きました。しばらくしてから再度お試しください。')
@@ -159,6 +159,7 @@ export default {
 .login p:hover {
   opacity: 0.5;
   text-decoration-line: underline;
+  cursor:default;
 }
 
 button:hover {

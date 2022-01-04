@@ -2,13 +2,26 @@
   <div class="header">
     <p>CrytoApp</p>
     <div class="logout">
-      <router-link to="login"><p>ログアウト</p></router-link>
+      <p @click="logout">ログアウト</p>
     </div>
   </div>
 </template>
 
 <script>
-
+import firebase from 'firebase/app';
+export default{
+  methods:{
+    logout(){
+      firebase
+      .auth()
+      .signOut()
+      .then(()=>{
+        alert("ログアウトが完了しました。")
+        this.$router.replace('/login')
+      })
+    }
+  }
+}
 </script>
 
 <style scoped>
@@ -33,6 +46,7 @@
 .logout p:hover {
   opacity: 0.5;
   text-decoration-line: underline;
+  cursor:default;
 }
 
 a {

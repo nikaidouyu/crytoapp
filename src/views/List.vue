@@ -12,7 +12,7 @@
         <img src="../assets/bitcoin.png">
         <p>BTC</p>
         <p>ビットコイン</p>
-      </div></a></router-link>
+      </div></a></router-link> 
       <router-link to="detail"><a><div class="name">
         <img src="../assets/ethereum.png">
         <p>ETH</p>

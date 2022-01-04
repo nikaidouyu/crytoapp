@@ -7,18 +7,66 @@
       <p>BTC</p>
       <p>ビットコイン</p>
     </div>
-    <p class="time">YYYY/MM/DD HH:MM:SS</p>
-    <p class="price">¥0,000,00.00</p>
+    <p class="time">{{ this.datetime }}</p>
+    <!-- <div v-for="currency in btc" class="currency"> -->
+    <p class="price">¥{{ btc }}</p>
+    <!-- </div> -->
   </div>
   </div>
 </template>
 
 <script>
 import Header2 from "../components/Header2";
+import axios from "axios";
 export default {
   components: {
     Header2
   },
+  data() {
+    return {
+      btc:[2],
+      timer: '',
+      datetime: '',
+      jsonData:''
+    }
+  },
+  mounted: function() {
+    // axios
+    // var request = require('request');
+    // var endPoint = 'https://api.coin.z.com/public';
+    // var path     = '/v1/ticker?symbol=BTC';
+
+    // request(endPoint + path, function (err, response, payload) {
+    // console.log(JSON.stringify(JSON.parse(payload), null, 2));
+    // });
+    
+
+    // axios.get("https://api.coin.z.com/public/v1/ticker?symbol=BTC")
+    // .then(function(response){
+    //   console.log(response.data)
+    //   this.btc = response.data
+    // }.bind(this))
+    // console.log(this.btc)
+
+    
+    axios
+    .get("https://api.coin.z.com/public/v1/ticker{}?symbol=BTC")
+    .then(function(response){
+      console.log(response.data);
+      this.btc = response.data[2];
+      // console.log(response.data.bid);
+    }.bind(this))
+    .catch(function(error){
+      console.log(error)
+    })
+    
+
+    
+    this.timer = setInterval(() => {
+        this.datetime = this.dayjs().format("YYYY/MM/DD HH:mm:ss")
+        console.log(this.datetime)
+      }, 1000)
+  }
 };
 </script>
 
@@ -46,13 +94,13 @@ export default {
 
 .time {
   text-align: center;
-  padding-bottom:150px;
+  padding-bottom:100px;
 }
 
 
 .price {
   text-align: center;
-  padding-bottom:125px;
+  padding-bottom:150px;
 }
 
 @media screen and (max-width : 768px){
@@ -70,3 +118,4 @@ export default {
 }
 
 </style>
+

@@ -2,6 +2,16 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+import dayjs from "dayjs"
+// import VueJsonp from 'vue-jsonp'
+
+// Vue.use(VueJsonp)
+
+Vue.prototype.dayjs = dayjs;
+
+Vue.use(VueAxios,axios)
 
 import firebase from 'firebase/app'
 import "firebase/auth"
@@ -25,3 +35,6 @@ new Vue({
   store,
   render: h => h(App)
 }).$mount('#app')
+
+
+
