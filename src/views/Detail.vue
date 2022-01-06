@@ -8,9 +8,7 @@
       <p>ビットコイン</p>
     </div>
     <p class="time">{{ this.datetime }}</p>
-    <!-- <div v-for="currency in btc" class="currency"> -->
     <p class="price">¥{{ btc }}</p>
-    <!-- </div> -->
   </div>
   </div>
 </template>
@@ -24,23 +22,13 @@ export default {
   },
   data() {
     return {
-      btc:[2],
+      btc:'',
       timer: '',
       datetime: '',
       jsonData:''
     }
   },
   mounted: function() {
-    // axios
-    // var request = require('request');
-    // var endPoint = 'https://api.coin.z.com/public';
-    // var path     = '/v1/ticker?symbol=BTC';
-
-    // request(endPoint + path, function (err, response, payload) {
-    // console.log(JSON.stringify(JSON.parse(payload), null, 2));
-    // });
-    
-
     // axios.get("https://api.coin.z.com/public/v1/ticker?symbol=BTC")
     // .then(function(response){
     //   console.log(response.data)
@@ -50,15 +38,30 @@ export default {
 
     
     axios
-    .get("https://api.coin.z.com/public/v1/ticker{}?symbol=BTC")
+    .get("https://api.coin.z.com/public/v1/ticker?symbol=BTC")
     .then(function(response){
       console.log(response.data);
-      this.btc = response.data[2];
+      this.btc = response.data.bid;
       // console.log(response.data.bid);
     }.bind(this))
     .catch(function(error){
       console.log(error)
     })
+
+    //  axios.get('https://api.coindesk.com/v1/bpi/currentprice.json')
+    //     .then(function(response){
+    //         this.bpi = response.data.bpi
+    //         console.log(this.bpi)
+    //     }.bind(this))
+    //     .catch(function(error){
+    //         console.log(error)
+
+    //         this.hasError = true
+    //     }.bind(this))
+    //     //追加
+    //     .finally(function(){
+    //         this.loading = false
+    //     }.bind(this))
     
 
     
