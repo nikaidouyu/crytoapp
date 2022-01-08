@@ -7,7 +7,7 @@
       <p>BTC</p>
       <p>ビットコイン</p>
     </div>
-    <p class="time">{{ this.datetime }}</p>
+    <p class="time">{{ datetime }}</p>
     <p class="price">¥{{ btc }}</p>
   </div>
   </div>
@@ -16,6 +16,7 @@
 <script>
 import Header2 from "../components/Header2";
 import axios from "axios";
+
 export default {
   components: {
     Header2
@@ -28,40 +29,22 @@ export default {
       jsonData:''
     }
   },
-  mounted: function() {
-    // axios.get("https://api.coin.z.com/public/v1/ticker?symbol=BTC")
+  mounted() {
+    // axios
+    // .get("https://api.coin.z.com/public/v1/ticker?symbol=BTC")
     // .then(function(response){
-    //   console.log(response.data)
+    //   console.log(response.data);
     //   this.btc = response.data
+    //   // console.log(response.data.bid);
     // }.bind(this))
-    // console.log(this.btc)
+    // .catch(function(error){
+    //   console.log(error)
+    // })
 
     
-    axios
-    .get("https://api.coin.z.com/public/v1/ticker?symbol=BTC")
-    .then(function(response){
-      console.log(response.data);
-      this.btc = response.data.bid;
-      // console.log(response.data.bid);
-    }.bind(this))
-    .catch(function(error){
-      console.log(error)
-    })
-
-    //  axios.get('https://api.coindesk.com/v1/bpi/currentprice.json')
-    //     .then(function(response){
-    //         this.bpi = response.data.bpi
-    //         console.log(this.bpi)
-    //     }.bind(this))
-    //     .catch(function(error){
-    //         console.log(error)
-
-    //         this.hasError = true
-    //     }.bind(this))
-    //     //追加
-    //     .finally(function(){
-    //         this.loading = false
-    //     }.bind(this))
+    const response = await axios.get("/v1/ticker?symbol=BTC");
+    console.log(response);
+    
     
 
     
@@ -70,6 +53,11 @@ export default {
         console.log(this.datetime)
       }, 1000)
   }
+
+  // methods() {
+  //   const response = await axios.get("/v1/ticker?symbol=BTC");
+  //   console.log(response);
+  // }
 };
 </script>
 
