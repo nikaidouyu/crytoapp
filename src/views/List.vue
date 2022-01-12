@@ -13,32 +13,32 @@
         <p>BTC</p>
         <p>ビットコイン</p>
       </div></a></router-link> 
-      <router-link to="detail"><a><div class="name">
+      <router-link to="detail2"><a><div class="name">
         <img src="../assets/ethereum.png">
         <p>ETH</p>
         <p>イーサリアム</p>
       </div></a></router-link>
-      <router-link to="detail"><a><div class="name">
+      <router-link to="detail3"><a><div class="name">
         <img src="../assets/bitcoin-cash.png">
         <p>BCH</p>
         <p>ビットコインキャッシュ</p>
       </div></a></router-link>
-      <router-link to="detail"><a><div class="name">
+      <router-link to="detail4"><a><div class="name">
         <img src="../assets/litecoin.png">
         <p>LTC</p>
         <p>ライトコイン</p>
       </div></a></router-link>
-      <router-link to="detail"><a><div class="name">
+      <router-link to="detail5"><a><div class="name">
         <img src="../assets/xrp.png">
         <p>XRP</p>
         <p>リップル</p>
       </div></a></router-link>
-      <router-link to="detail"><a><div class="name">
+      <router-link to="detail6"><a><div class="name">
         <img src="../assets/nem.png">
         <p>XEM</p>
         <p>ネム</p>
       </div></a></router-link>
-      <router-link to="detail"><a><div class="name">
+      <router-link to="detail7"><a><div class="name">
         <img src="../assets/stellar.png">
         <p>XLM</p>
         <p>ステラルーメン</p>

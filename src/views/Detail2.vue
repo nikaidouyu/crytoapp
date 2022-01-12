@@ -4,8 +4,8 @@
   <router-view/>
   <div class="back-color">
     <div class="name">
-      <p>BTC</p>
-      <p>ビットコイン</p>
+      <p>ETH</p>
+      <p>イーサリアム</p>
     </div>
     <p class="time">{{ timestamp }}</p>
     <p class="price">¥{{ btc  | includedTax | formatNumber}}円</p>
@@ -50,7 +50,7 @@ export default {
 
 
       axios
-    .get("https://api.coin.z.com/public/v1/ticker?symbol=BTC")
+    .get("https://api.coin.z.com/public/v1/ticker?symbol=ETH")
     .then(function(response){
       console.log(response.data);
       this.btc = response.data.data[0].bid;
@@ -62,7 +62,7 @@ export default {
     }
   },
   mounted: function(){
-        axios.get("https://api.coin.z.com/public/v1/ticker?symbol=BTC")
+        axios.get("https://api.coin.z.com/public/v1/ticker?symbol=ETH")
         .then(function(response){
           this.btc = response.data.data[0].bid;
         }.bind(this))
