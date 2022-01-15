@@ -20,7 +20,7 @@ import axios from "axios";
 
 export default {
   components: {
-    Header2
+    Header2,
   },
   data() {
     return {

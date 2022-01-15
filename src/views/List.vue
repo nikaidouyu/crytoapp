@@ -52,7 +52,7 @@
 import Header2 from "../components/Header2";
 export default {
   components: {
-    Header2
+    Header2,
   },
 };
 </script>

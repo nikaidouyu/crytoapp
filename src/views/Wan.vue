@@ -6,7 +6,7 @@
       <div class="back">
         <div class="email">
           <p>email:</p>
-          <input v-model="email" type="email" required>
+          <input v-model="email"  name="email" type="text" required>
         </div>
         <div class="pass">
           <p>password:</p>
@@ -25,9 +25,10 @@
 import Header from "../components/Header";
 import firebase from 'firebase/app';
 
+
 export default {
   components: {
-    Header
+    Header,
   },
   data() {
     return {

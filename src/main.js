@@ -5,9 +5,6 @@ import store from './store'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import dayjs from "dayjs"
-// import VueJsonp from 'vue-jsonp'
-
-// Vue.use(VueJsonp)
 
 Vue.prototype.dayjs = dayjs;
 

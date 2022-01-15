@@ -27,7 +27,7 @@ import firebase from 'firebase/app';
 
 export default {
   components: {
-    Header
+    Header,
   },
   data() {
     return {
